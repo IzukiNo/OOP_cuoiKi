@@ -67,7 +67,6 @@ public:
         cout << setw(16) << "Tuoi" << ": " << ct.tuoi << "\n";
         cout << setw(16) << "So ao" << ": " << ct.soAo << "\n";
         cout << setw(16) << "Vi tri" << ": " << ct.viTri << "\n";
-        cout << "----------------------------------------\n";
         return out;
     }
 
@@ -77,12 +76,6 @@ public:
     int getTuoi() const { return tuoi; }
     int getSoAo() const { return soAo; }
 
-    static void displayHeader()
-    {
-        cout << "----------------------------------------\n";
-        cout << "          THONG TIN CAU THU\n";
-        cout << "----------------------------------------\n";
-    };
     virtual void thongTin()
     {
         cout << *this;
@@ -95,9 +88,13 @@ public:
 
     void displayAll()
     {
-        displayHeader();
+        cout << "----------------------------------------\n";
+        cout << "          THONG TIN CAU THU\n";
+        cout << "----------------------------------------\n";
         thongTin();
+        cout << "----------------------------------------\n";
         chiSo();
+        cout << "----------------------------------------\n";
     }
 
     virtual void nhapThongTin()
@@ -146,12 +143,11 @@ public:
         return out;
     }
 
-    void chiSo()
+    void chiSo() override
     {
         cauThu::chiSo();
         cout << setw(16) << "Ky nang chup" << ": " << kyNangChup << "★" << endl;
         cout << setw(16) << "Ky nang phan xa" << ": " << khaNangPhanXa << "★" << endl;
-        cout << "----------------------------------------\n";
     }
     void thiDau() override
     {
@@ -200,11 +196,11 @@ public:
         return out;
     }
 
-    void chiSo()
+    void chiSo() override
     {
         cauThu::chiSo();
-        cout << "Ky nang tranh chap: " << kyNangTranhChap << "★" << endl;
-        cout << "Ky nang lay banh: " << kyNangLayBanh << "★" << endl;
+        cout << setw(16) << "Ky nang tranh chap" << ": " << kyNangTranhChap << "★" << endl;
+        cout << setw(16) << "Ky nang lay banh" << ": " << kyNangLayBanh << "★" << endl;
     }
     void thiDau() override
     {
@@ -251,11 +247,11 @@ public:
         return out;
     }
 
-    void chiSo()
+    void chiSo() override
     {
         cauThu::chiSo();
-        cout << "Ky nang chuyen xa: " << kyNangChuyenXa << "★" << endl;
-        cout << "Ky nang sut xa: " << kyNangSutXa << "★" << endl;
+        cout << setw(16) << "Ky nang chuyen xa" << ": " << kyNangChuyenXa << "★" << endl;
+        cout << setw(16) << "Ky nang sut xa" << ": " << kyNangSutXa << "★" << endl;
     }
     void thiDau() override
     {
@@ -302,11 +298,11 @@ public:
         return out;
     }
 
-    void chiSo()
+    void chiSo() override
     {
         cauThu::chiSo();
-        cout << "Ky nang danh dau: " << kyNangDanhDau << "★" << endl;
-        cout << "Ky nang sut gan: " << kyNangSutGan << "★" << endl;
+        cout << setw(16) << "Ky nang danh dau" << ": " << kyNangDanhDau << "★" << endl;
+        cout << setw(16) << "Ky nang sut gan" << ": " << kyNangSutGan << "★" << endl;
     }
     void thiDau() override
     {
