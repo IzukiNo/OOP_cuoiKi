@@ -410,6 +410,59 @@ void addListPlayer(vector<cauThu *> &cauThu)
         addPlayer(cauThu);
     }
 }
+
+void searchPlayer(const vector<cauThu *> &cauThu)
+{
+    string name;
+    cout << "Nhap ten cau thu can tim: ";
+    getline(cin, name);
+    bool found = false;
+    cls();
+    for (const auto &ct : cauThu)
+    {
+        if (ct->getTen() == name)
+        {
+            ct->displayAll();
+            found = true;
+            break;
+        }
+    }
+    if (!found)
+    {
+        cls();
+        cout << "Khong tim thay cau thu co ten: " << name << endl;
+    }
+    cin.get();
+}
+void deletePlayer(vector<cauThu *> &cauThu)
+{
+    string name;
+    cout << "Nhap ten cau thu can xoa: ";
+    getline(cin, name);
+    bool found = false;
+    cls();
+    for (size_t i = 0; i < cauThu.size(); ++i)
+    {
+        if (cauThu[i]->getTen() == name)
+        {
+            delete cauThu[i];
+            cauThu.erase(cauThu.begin() + i);
+            found = true;
+            break;
+        }
+    }
+    if (!found)
+    {
+        cls();
+        cout << "Khong tim thay cau thu co ten: " << name << endl;
+    }
+    else
+    {
+        cout << "Da xoa cau thu co ten: " << name << endl;
+    }
+    cin.get();
+}
+
 void Menu(vector<cauThu *> &cauThu, bool loop = true)
 {
     while (loop)
@@ -446,9 +499,11 @@ void Menu(vector<cauThu *> &cauThu, bool loop = true)
             break;
         case 3:
             cls();
+            searchPlayer(cauThu);
             break;
         case 4:
             cls();
+            deletePlayer(cauThu);
             break;
         case 5:
             loop = false;
